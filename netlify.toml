@@ -1,0 +1,49 @@
+# Netlify-Konfiguration für die statisch exportierte Next.js-Site
+
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# 301-Redirects: alte WordPress-URLs -> neue Struktur
+[[redirects]]
+  from = "/index"
+  to = "/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/unser-service"
+  to = "/leistungen/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/uber-uns"
+  to = "/ueber-uns/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/anfahrt"
+  to = "/kontakt/"
+  status = 301
+  force = true
+
+# Sicherheits-Header
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Langes Caching für optimierte Assets
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+[[headers]]
+  for = "/videos/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
