@@ -3,8 +3,6 @@ import { site } from "@/lib/site";
 import { serviceSlugs } from "@/lib/services";
 import { articleSlugs } from "@/lib/ratgeber";
 
-export const dynamic = "force-static";
-
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = [
     "/",

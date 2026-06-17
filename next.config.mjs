@@ -1,12 +1,9 @@
 /** @type {import('next').NextConfig} */
+// Standard-Next.js auf der Netlify Next.js Runtime (OpenNext).
+// Kein statischer Export mehr → next/image-Optimierung, ISR & Route Handler verfügbar.
 const nextConfig = {
-  // Vollständig statischer Export -> host-agnostisch (Vercel, Netlify, jeder Static-Host).
-  output: "export",
   // Saubere URLs mit abschließendem Slash (/leistungen/, /kontakt/ ...).
   trailingSlash: true,
-  // Bei statischem Export findet keine serverseitige Bildoptimierung statt;
-  // die Bilder sind bereits vorab als WebP optimiert.
-  images: { unoptimized: true },
   reactStrictMode: true,
 };
 

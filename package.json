@@ -2,11 +2,12 @@
   "name": "hamburgs-garage",
   "version": "1.0.0",
   "private": true,
-  "description": "Website der Hamburgs GaRage – KFZ-Meisterbetrieb in Hamburg-Eimsbüttel (Next.js, statischer Export)",
+  "description": "Website der Hamburgs GaRage – KFZ-Meisterbetrieb in Hamburg-Eimsbüttel (Next.js, Netlify Next.js Runtime)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "preview": "npx --yes serve out"
+    "start": "next start",
+    "preview": "next start"
   },
   "dependencies": {
     "next": "^16.2.0",
