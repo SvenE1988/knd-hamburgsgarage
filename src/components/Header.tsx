@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { site, mainNav } from "@/lib/site";
@@ -21,7 +22,7 @@ export default function Header() {
       </div>
       <div className="container header-bar">
         <Link href="/" className="brand" aria-label="Zur Startseite">
-          <img src="/images/logo.png" alt="Hamburgs GaRage – KFZ-Meisterbetrieb in Hamburg-Eimsbüttel" width={44} height={44} />
+          <Image src="/images/logo.png" alt="Hamburgs GaRage – KFZ-Meisterbetrieb in Hamburg-Eimsbüttel" width={44} height={44} />
           <span>Hamburgs<span className="gr"> GaRage</span></span>
         </Link>
 

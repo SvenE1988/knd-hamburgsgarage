@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { articles } from "@/lib/ratgeber";
 import { Container, SectionHeading } from "@/components/ui";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -26,7 +27,7 @@ export default function RatgeberPage() {
           <div className="grid cols-3 mt-12">
             {articles.map((a) => (
               <Link key={a.slug} href={`/ratgeber/${a.slug}/`} className="lcard" style={{ padding: 0, overflow: "hidden" }}>
-                <img src={a.heroImage} alt={a.heroAlt} width={600} height={360} loading="lazy" style={{ height: 180, width: "100%", objectFit: "cover" }} />
+                <Image src={a.heroImage} alt={a.heroAlt} width={600} height={360} sizes="(max-width: 560px) 100vw, (max-width: 860px) 50vw, 380px" style={{ height: 180, width: "100%", objectFit: "cover" }} />
                 <div style={{ padding: "18px 20px" }}>
                   <time style={{ fontSize: 12, color: "var(--muted)", textTransform: "uppercase", letterSpacing: ".1em" }}>
                     {new Date(a.date).toLocaleDateString("de-DE", { day: "2-digit", month: "long", year: "numeric" })}

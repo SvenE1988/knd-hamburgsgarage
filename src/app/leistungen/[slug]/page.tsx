@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getService, serviceSlugs } from "@/lib/services";
 import { site, whatsappUrl } from "@/lib/site";
@@ -65,7 +66,7 @@ export default async function ServicePage({ params }: Props) {
               </div>
             </div>
             <div className="imgcard" style={{ minHeight: 320 }}>
-              <img src={service.heroImage} alt={service.heroAlt} width={1200} height={900} />
+              <Image src={service.heroImage} alt={service.heroAlt} width={1200} height={900} priority sizes="(max-width: 860px) 100vw, 600px" />
             </div>
           </div>
         </Container>

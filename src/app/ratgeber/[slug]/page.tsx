@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getArticle, articleSlugs } from "@/lib/ratgeber";
 import { getService } from "@/lib/services";
@@ -68,7 +69,7 @@ export default async function ArticlePage({ params }: Props) {
           <h1 className="h1 mt-2">{article.title}</h1>
 
           <div className="imgcard mt-8" style={{ maxHeight: 420 }}>
-            <img src={article.heroImage} alt={article.heroAlt} width={1200} height={700} />
+            <Image src={article.heroImage} alt={article.heroAlt} width={1200} height={700} priority sizes="(max-width: 820px) 100vw, 800px" />
           </div>
 
           <div className="prose mt-8">
