@@ -31,19 +31,17 @@ export default function DatenschutzPage() {
             <h2>3. Reichweitenmessung mit Umami</h2>
             <p>Wir nutzen die selbstgehostete, cookielose Analyse-Software <strong>Umami</strong> (gehostet auf einem Server in Deutschland, analytics.erkens.cloud). Es werden keine Cookies gesetzt und keine personenbezogenen Profile gebildet; die Erfassung erfolgt anonymisiert zur Reichweitenmessung (Art. 6 Abs. 1 lit. f DSGVO).</p>
 
-            <h2>4. Kontakt-, Termin- und Buchungsformular</h2>
-            <p>Für Anfragen, Termin- und Buchungswünsche binden wir Formulare und einen Online-Terminkalender unseres Dienstleisters <strong>linkty.ai</strong> ein. Ihre dort eingegebenen Angaben (z. B. Name, Kontaktdaten, Anliegen, Wunschtermin) verarbeiten wir zur Bearbeitung Ihrer Anfrage bzw. zur Durchführung der Terminbuchung (Art. 6 Abs. 1 lit. b und f DSGVO). Die Verarbeitung erfolgt auf Grundlage eines Auftragsverarbeitungsvertrags (Art. 28 DSGVO); die Plattform wird auf Servern in Deutschland betrieben. Sofern im Einzelfall eine Übermittlung in Drittländer erfolgt, ist diese durch geeignete Garantien (EU-US Data Privacy Framework bzw. Standardvertragsklauseln) abgesichert.</p>
+            <h2>4. Externe Inhalte: Formulare, Terminbuchung und Google Maps</h2>
+            <p>Wir binden Kontakt-, Kostenvoranschlag- und Buchungsformulare sowie einen Online-Terminkalender unseres Dienstleisters <strong>linkty.ai</strong> und zur Standortdarstellung <strong>Google Maps</strong> (Google Ireland Limited) ein. Diese externen Inhalte werden <strong>erst nach Ihrer Einwilligung</strong> geladen – entweder zentral über die Kategorie „Externe Inhalte“ im Einwilligungsbanner oder durch Einzelfreigabe direkt am jeweiligen Element (z. B. „Karte laden“). Erst dann werden Daten – im Fall von Google ggf. in die USA – an den jeweiligen Anbieter übertragen (Art. 6 Abs. 1 lit. a DSGVO).</p>
+            <p>Ihre in den linkty.ai-Formularen eingegebenen Angaben (z. B. Name, Kontaktdaten, Anliegen, Wunschtermin) verarbeiten wir zur Bearbeitung Ihrer Anfrage bzw. zur Durchführung der Terminbuchung (Art. 6 Abs. 1 lit. b und f DSGVO). Die Verarbeitung erfolgt auf Grundlage eines Auftragsverarbeitungsvertrags (Art. 28 DSGVO); die Plattform wird auf Servern in Deutschland betrieben. Sofern im Einzelfall eine Übermittlung in Drittländer erfolgt, ist diese durch geeignete Garantien (EU-US Data Privacy Framework bzw. Standardvertragsklauseln) abgesichert.</p>
 
             <h2>5. Chat-Widget</h2>
-            <p>Optional bieten wir einen Chat (inkl. WhatsApp/KI-Assistent) über unseren Dienstleister <strong>linkty.ai</strong> an. Das Chat-Widget wird <strong>erst nach Ihrer Einwilligung</strong> geladen (Art. 6 Abs. 1 lit. a DSGVO); dabei können Daten an die Plattform und ggf. eingebundene Dritte übertragen werden. Sie können die Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen.</p>
+            <p>Optional bieten wir einen Chat (inkl. WhatsApp/KI-Assistent) über unseren Dienstleister <strong>linkty.ai</strong> an. Das Chat-Widget wird <strong>erst nach Ihrer Einwilligung</strong> über die Kategorie „Chat-Dienst“ im Einwilligungsbanner geladen (Art. 6 Abs. 1 lit. a DSGVO); dabei können Daten an die Plattform und ggf. eingebundene Dritte übertragen werden. Ihre Einwilligungen können Sie jederzeit über „Cookie-Einstellungen“ im Seitenfuß mit Wirkung für die Zukunft ändern oder widerrufen.</p>
 
-            <h2>6. Google Maps</h2>
-            <p>Zur Standortdarstellung binden wir Google Maps ein. Die Karte wird erst nach Klick auf „Karte laden“ geladen; erst dann werden Daten – ggf. in die USA – an Google übertragen (Art. 6 Abs. 1 lit. a DSGVO). Anbieter: Google Ireland Limited.</p>
-
-            <h2>7. WhatsApp</h2>
+            <h2>6. WhatsApp</h2>
             <p>Über den WhatsApp-Button nehmen Sie auf eigenen Wunsch Kontakt auf. Es gelten die Datenschutzbestimmungen von WhatsApp/Meta.</p>
 
-            <h2>8. Ihre Rechte</h2>
+            <h2>7. Ihre Rechte</h2>
             <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch sowie ein Beschwerderecht bei der zuständigen Aufsichtsbehörde (für Hamburg: Der Hamburgische Beauftragte für Datenschutz und Informationsfreiheit). Eine erteilte Einwilligung können Sie jederzeit widerrufen.</p>
 
             <p style={{ fontSize: 14 }}>Stand: Juni 2026</p>

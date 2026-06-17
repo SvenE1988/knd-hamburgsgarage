@@ -3,6 +3,7 @@ import Image from "next/image";
 import { site, whatsappUrl, googleReviewsUrl, openingHoursShort } from "@/lib/site";
 import { services } from "@/lib/services";
 import { Container } from "./ui";
+import ConsentSettingsLink from "./ConsentSettingsLink";
 import { PhoneIcon, MailIcon, MapPinIcon, ClockIcon, WhatsAppIcon, StarIcon } from "./icons";
 
 export default function Footer() {
@@ -45,9 +46,10 @@ export default function Footer() {
 
         <div className="fbtm">
           <span>© {year} {site.legalName}</span>
-          <span style={{ display: "flex", gap: 16 }}>
+          <span style={{ display: "flex", gap: 16, alignItems: "center" }}>
             <Link href="/impressum/">Impressum</Link>
             <Link href="/datenschutz/">Datenschutz</Link>
+            <ConsentSettingsLink />
           </span>
         </div>
       </Container>

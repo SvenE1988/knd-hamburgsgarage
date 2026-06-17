@@ -2,14 +2,17 @@
 
 import { useState } from "react";
 import { site } from "@/lib/site";
+import { useConsent } from "./ConsentProvider";
 import { MapPinIcon } from "./icons";
 
-// DSGVO-freundlich: Google Maps lädt erst nach aktivem Klick.
+// DSGVO-freundlich: Google Maps lädt nach zentraler Einwilligung (Kategorie „externalEmbeds")
+// oder per Einzelfreigabe-Klick, falls (noch) nicht zentral zugestimmt wurde.
 export default function MapEmbed() {
+  const { consent } = useConsent();
   const [loaded, setLoaded] = useState(false);
   const q = encodeURIComponent(`${site.address.street}, ${site.address.postalCode} ${site.address.city}`);
 
-  if (!loaded) {
+  if (!consent.externalEmbeds && !loaded) {
     return (
       <div className="embed-gate">
         <MapPinIcon width={30} height={30} style={{ color: "var(--red)" }} />

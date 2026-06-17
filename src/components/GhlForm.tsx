@@ -2,13 +2,17 @@
 
 import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
+import { useConsent } from "./ConsentProvider";
 import { MailIcon } from "./icons";
 
 // Bindet das GoHighLevel-Formular (link.linkty.ai) ein und lädt das Resize-Script einmalig.
 // Das Innendesign des Formulars wird in GoHighLevel selbst gepflegt; hier matchen wir den Rahmen.
-// DSGVO-freundlich: das iframe lädt erst nach aktivem Klick (Gate).
+// DSGVO-freundlich: das iframe lädt nach zentraler Einwilligung (Kategorie „externalEmbeds")
+// oder per Einzelfreigabe-Klick (Gate).
 export default function GhlForm({ title = "Anfrageformular" }: { title?: string }) {
-  const [loaded, setLoaded] = useState(false);
+  const { consent } = useConsent();
+  const [clicked, setClicked] = useState(false);
+  const loaded = consent.externalEmbeds || clicked;
 
   useEffect(() => {
     if (!loaded) return;
@@ -28,7 +32,7 @@ export default function GhlForm({ title = "Anfrageformular" }: { title?: string 
           <p style={{ color: "#fff", fontWeight: 700 }}>{title}</p>
           <p className="muted" style={{ fontSize: 13, marginTop: 4 }}>Beim Laden werden Daten an linkty.ai übertragen.</p>
         </div>
-        <button type="button" className="btn primary sm" onClick={() => setLoaded(true)}>Formular laden</button>
+        <button type="button" className="btn primary sm" onClick={() => setClicked(true)}>Formular laden</button>
       </div>
     );
   }

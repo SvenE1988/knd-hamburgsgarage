@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
+import { useConsent } from "./ConsentProvider";
 import { CalendarIcon } from "./icons";
 
 // Bindet die Online-Terminbuchung (Kalender-Widget, White-Label-Domain link.linkty.ai) ein
 // und lädt das Resize-Script einmalig. Genutzt auf /termin/ und im Buchungs-Popup der Leistungsseiten.
-// DSGVO-freundlich: das iframe lädt erst nach aktivem Klick (Gate), außer autoload=true
-// (z.B. im Buchungs-Modal, wo das Öffnen bereits die aktive Geste ist).
+// DSGVO-freundlich: das iframe lädt nach zentraler Einwilligung (Kategorie „externalEmbeds"),
+// per Einzelfreigabe-Klick (Gate) oder bei autoload=true (z.B. im Buchungs-Modal, wo das Öffnen
+// bereits die aktive Geste ist).
 export default function CalendarEmbed({
   title = "Online-Terminbuchung",
   autoload = false,
@@ -15,7 +17,9 @@ export default function CalendarEmbed({
   title?: string;
   autoload?: boolean;
 }) {
-  const [loaded, setLoaded] = useState(autoload);
+  const { consent } = useConsent();
+  const [clicked, setClicked] = useState(false);
+  const loaded = autoload || consent.externalEmbeds || clicked;
 
   useEffect(() => {
     if (!loaded) return;
@@ -38,7 +42,7 @@ export default function CalendarEmbed({
           <p style={{ color: "#fff", fontWeight: 700 }}>Online-Terminbuchung</p>
           <p className="muted" style={{ fontSize: 13, marginTop: 4 }}>Beim Laden werden Daten an linkty.ai übertragen.</p>
         </div>
-        <button type="button" className="btn primary sm" onClick={() => setLoaded(true)}>Kalender laden</button>
+        <button type="button" className="btn primary sm" onClick={() => setClicked(true)}>Kalender laden</button>
       </div>
     );
   }

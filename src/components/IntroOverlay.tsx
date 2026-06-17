@@ -24,6 +24,13 @@ export default function IntroOverlay() {
     try { seen = sessionStorage.getItem("hg_intro"); } catch {}
     if (seen) { setPhase("gone"); return; }
 
+    // Wer „Bewegung reduzieren" aktiv hat (auf iOS verbreitet), bekommt kein Intro –
+    // direkt zur Startseite, und das Video wird gar nicht erst geladen (kein vergeudeter Download).
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setPhase("gone");
+      return;
+    }
+
     const v = videoRef.current;
     let raf = 0;
     if (v) {
@@ -34,7 +41,9 @@ export default function IntroOverlay() {
       raf = requestAnimationFrame(() => {
         raf = requestAnimationFrame(() => {
           const p = v.play();
-          if (p && typeof p.catch === "function") p.catch(() => {});
+          // Lehnt der Browser Autoplay ab (z.B. iOS im Stromsparmodus), nicht 9 s
+          // schwarz stehen bleiben, sondern Intro sofort überspringen.
+          if (p && typeof p.catch === "function") p.catch(hide);
         });
       });
     }

@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFab from "@/components/WhatsAppFab";
+import ConsentProvider from "@/components/ConsentProvider";
 import ConsentBanner from "@/components/ConsentBanner";
 import ChatWidget from "@/components/ChatWidget";
 import JsonLd from "@/components/JsonLd";
@@ -51,12 +52,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="de" className={`${inter.variable} ${archivo.variable} ${anton.variable}`}>
       <body>
         <JsonLd data={autoRepairSchema()} />
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppFab />
-        <ConsentBanner />
-        <ChatWidget />
+        <ConsentProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <WhatsAppFab />
+          <ConsentBanner />
+          <ChatWidget />
+        </ConsentProvider>
 
         {/* Umami – selbstgehostet, cookieless */}
         <Script defer src={site.umami.src} data-website-id={site.umami.websiteId} strategy="afterInteractive" />
