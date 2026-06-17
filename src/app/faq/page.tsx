@@ -20,7 +20,7 @@ const faqs = [
   { q: "Bekomme ich für die Reparaturzeit ein Ersatzfahrzeug?", a: "Auf Wunsch stellen wir Ihnen einen Werkstattersatzwagen bereit. Bitte fragen Sie diesen bei der Terminvereinbarung an, da die Zahl der Fahrzeuge begrenzt ist." },
   { q: "Macht ihr auch HU und AU?", a: "Ja. Die Abgasuntersuchung führen wir im Betrieb durch, die Hauptuntersuchung nimmt eine amtlich anerkannte Prüforganisation direkt bei uns ab. Diesen Termin koordinieren wir kurz telefonisch." },
   { q: "Kann ich meine Reifen bei euch einlagern?", a: "Ja, wir verfügen über ein eigenes Reifenlager direkt am Betrieb. Sie müssen Ihre Räder nicht transportieren – wir lagern sie ein und montieren sie zum nächsten Saisonwechsel wieder." },
-  { q: "Wo finde ich euch und wie sind die Öffnungszeiten?", a: `Sie finden uns in der ${site.address.street}, ${site.address.postalCode} ${site.address.city}-${site.address.district}. Geöffnet ist Montag bis Donnerstag von 8:00 bis 17:15 Uhr und freitags von 8:00 bis 15:15 Uhr.` },
+  { q: "Wo finde ich euch und wie sind die Öffnungszeiten?", a: `Sie finden uns in der ${site.address.street}, ${site.address.postalCode} ${site.address.city}-${site.address.district}. Geöffnet ist Montag bis Donnerstag von ${site.openingHours[0].open.replace(/^0/, "")} bis ${site.openingHours[0].close.replace(/^0/, "")} Uhr und freitags von ${site.openingHours[1].open.replace(/^0/, "")} bis ${site.openingHours[1].close.replace(/^0/, "")} Uhr.` },
   { q: "Wie komme ich mit öffentlichen Verkehrsmitteln zu euch?", a: "Wir liegen verkehrsgünstig an der Osterstraße. Mit der U-Bahn erreichen Sie uns über die Linie U2, Haltestelle Osterstraße." },
 ];
 

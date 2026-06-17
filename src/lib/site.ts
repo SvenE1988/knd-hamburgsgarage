@@ -28,8 +28,8 @@ export const site = {
   geo: { lat: 53.5755426, lng: 9.9566515 },
   googlePlaceId: "ChIJ3ZroK1GPsUcRyTYVGltVy-4",
   openingHours: [
-    { days: "Montag – Donnerstag", time: "08:00 – 17:15 Uhr", dow: ["Mo", "Tu", "We", "Th"], open: "08:00", close: "17:15" },
-    { days: "Freitag", time: "08:00 – 15:15 Uhr", dow: ["Fr"], open: "08:00", close: "15:15" },
+    { days: "Montag – Donnerstag", time: "08:00 – 19:00 Uhr", dow: ["Mo", "Tu", "We", "Th"], open: "08:00", close: "19:00" },
+    { days: "Freitag", time: "08:00 – 18:00 Uhr", dow: ["Fr"], open: "08:00", close: "18:00" },
   ],
   owners: ["Rade Stojkovic", "Gabor Böhm"],
   register: { hrb: "HRB 166741", court: "Amtsgericht Hamburg" },
@@ -62,6 +62,17 @@ export const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${
   site.address.street + ", " + site.address.postalCode + " " + site.address.city
 )}&query_place_id=${site.googlePlaceId}`;
 export const whatsappUrl = `https://wa.me/${site.whatsapp.number}?text=${encodeURIComponent(site.whatsapp.text)}`;
+
+// Kompakte Öffnungszeiten für Header/Footer (Kurztage, ohne führende Null), z. B.
+// "Mo–Do 8:00–19:00 · Fr 8:00–18:00". Quelle bleibt site.openingHours.
+const shortDay: Record<string, string> = { Mo: "Mo", Tu: "Di", We: "Mi", Th: "Do", Fr: "Fr", Sa: "Sa", Su: "So" };
+const stripLeadingZero = (t: string) => t.replace(/^0/, "");
+export const openingHoursShort = site.openingHours
+  .map((h) => {
+    const days = h.dow.length > 1 ? `${shortDay[h.dow[0]]}–${shortDay[h.dow[h.dow.length - 1]]}` : shortDay[h.dow[0]];
+    return `${days} ${stripLeadingZero(h.open)}–${stripLeadingZero(h.close)}`;
+  })
+  .join(" · ");
 
 export const priceDisclaimer =
   "Alle Preise sind ab-Preise als Platzhalter und werden je nach Fahrzeugmodell, Verschleißzustand und Material individuell bestätigt. Der Endpreis erfolgt nach Fahrzeugdaten und Sichtprüfung in der Werkstatt.";

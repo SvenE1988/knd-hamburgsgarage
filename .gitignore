@@ -32,3 +32,6 @@ next-env.d.ts.bak
 
 # three-brain / Codex-Review-Rohimport (lokales Artefakt)
 three-brain-out/
+
+# Playwright-MCP-Snapshots (lokales Artefakt)
+.playwright-mcp/

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { site, whatsappUrl, googleReviewsUrl } from "@/lib/site";
+import { site, whatsappUrl, googleReviewsUrl, openingHoursShort } from "@/lib/site";
 import { services } from "@/lib/services";
 import { Container } from "./ui";
 import { PhoneIcon, MailIcon, MapPinIcon, ClockIcon, WhatsAppIcon, StarIcon } from "./icons";
@@ -39,7 +39,7 @@ export default function Footer() {
             <p><a href={`tel:${site.phone.e164}`} data-umami-event="Anruf" style={{ display: "inline-flex", gap: 8, alignItems: "center" }}><PhoneIcon width={18} height={18} /> {site.phone.display}</a></p>
             <p><a href={whatsappUrl} target="_blank" rel="noopener noreferrer" data-umami-event="WhatsApp" style={{ display: "inline-flex", gap: 8, alignItems: "center" }}><WhatsAppIcon width={18} height={18} /> WhatsApp</a></p>
             <p><a href={`mailto:${site.email}`} style={{ display: "inline-flex", gap: 8, alignItems: "center" }}><MailIcon width={18} height={18} /> {site.email}</a></p>
-            <p style={{ display: "flex", gap: 8 }}><ClockIcon width={18} height={18} /> Mo–Do 8:00–17:15 · Fr 8:00–15:15</p>
+            <p style={{ display: "flex", gap: 8 }}><ClockIcon width={18} height={18} /> {openingHoursShort}</p>
           </div>
         </div>
 

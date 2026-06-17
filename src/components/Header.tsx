@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { site, mainNav } from "@/lib/site";
+import { site, mainNav, openingHoursShort } from "@/lib/site";
 import { PhoneIcon, MenuIcon, CloseIcon, ClockIcon } from "./icons";
 
 export default function Header() {
@@ -16,7 +16,7 @@ export default function Header() {
     <header className="site-header" id="site-header">
       <div className="topbar">
         <div className="container">
-          <span className="ib"><ClockIcon width={14} height={14} /> Mo–Do 8:00–17:15 · Fr 8:00–15:15</span>
+          <span className="ib"><ClockIcon width={14} height={14} /> {openingHoursShort}</span>
           <span>{site.claim}</span>
         </div>
       </div>
