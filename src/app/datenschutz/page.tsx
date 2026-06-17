@@ -26,16 +26,16 @@ export default function DatenschutzPage() {
             <p>{site.legalName}<br />{site.address.street}, {site.address.postalCode} {site.address.city}<br />Telefon: {site.phone.display} · E-Mail: {site.email}</p>
 
             <h2>2. Hosting &amp; Server-Logfiles</h2>
-            <p>Diese Website wird bei einem Dienstleister gehostet (Auftragsverarbeitung). Beim Aufruf werden technisch notwendige Daten (z. B. IP-Adresse, Zeitpunkt, abgerufene Seite) in Server-Logfiles verarbeitet (Art. 6 Abs. 1 lit. f DSGVO). <span style={{ fontStyle: "italic" }}>[Hosting-Anbieter konkret benennen, z. B. Netlify, inkl. Auftragsverarbeitungsvertrag.]</span></p>
+            <p>Diese Website wird bei Netlify (Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, USA) im Rahmen einer Auftragsverarbeitung gehostet. Beim Aufruf werden technisch notwendige Daten (z. B. IP-Adresse, Zeitpunkt, abgerufene Seite, Browsertyp) in Server-Logfiles verarbeitet (Art. 6 Abs. 1 lit. f DSGVO; berechtigtes Interesse an einem sicheren und stabilen Betrieb). Mit Netlify besteht ein Auftragsverarbeitungsvertrag; eine etwaige Übermittlung in die USA ist durch das EU-US Data Privacy Framework bzw. Standardvertragsklauseln abgesichert.</p>
 
             <h2>3. Reichweitenmessung mit Umami</h2>
             <p>Wir nutzen die selbstgehostete, cookielose Analyse-Software <strong>Umami</strong> (gehostet auf einem Server in Deutschland, analytics.erkens.cloud). Es werden keine Cookies gesetzt und keine personenbezogenen Profile gebildet; die Erfassung erfolgt anonymisiert zur Reichweitenmessung (Art. 6 Abs. 1 lit. f DSGVO).</p>
 
-            <h2>4. Kontakt- und Terminformular (GoHighLevel)</h2>
-            <p>Für Anfragen und Terminwünsche binden wir ein Formular des Dienstes <strong>GoHighLevel</strong> (HighLevel) ein. Ihre Angaben werden zur Bearbeitung der Anfrage verarbeitet (Art. 6 Abs. 1 lit. b und f DSGVO). <span style={{ fontStyle: "italic" }}>[Anbieter/Subunternehmer, Serverstandort und ggf. Standardvertragsklauseln ergänzen.]</span></p>
+            <h2>4. Kontakt-, Termin- und Buchungsformular</h2>
+            <p>Für Anfragen, Termin- und Buchungswünsche binden wir Formulare und einen Online-Terminkalender unseres Dienstleisters <strong>linkty.ai</strong> ein. Ihre dort eingegebenen Angaben (z. B. Name, Kontaktdaten, Anliegen, Wunschtermin) verarbeiten wir zur Bearbeitung Ihrer Anfrage bzw. zur Durchführung der Terminbuchung (Art. 6 Abs. 1 lit. b und f DSGVO). Die Verarbeitung erfolgt auf Grundlage eines Auftragsverarbeitungsvertrags (Art. 28 DSGVO); die Plattform wird auf Servern in Deutschland betrieben. Sofern im Einzelfall eine Übermittlung in Drittländer erfolgt, ist diese durch geeignete Garantien (EU-US Data Privacy Framework bzw. Standardvertragsklauseln) abgesichert.</p>
 
-            <h2>5. Chat-Widget (GoHighLevel)</h2>
-            <p>Optional bieten wir einen Chat (inkl. WhatsApp/KI-Assistent) über GoHighLevel an. Das Chat-Widget wird <strong>erst nach Ihrer Einwilligung</strong> geladen (Art. 6 Abs. 1 lit. a DSGVO). Sie können die Einwilligung jederzeit widerrufen.</p>
+            <h2>5. Chat-Widget</h2>
+            <p>Optional bieten wir einen Chat (inkl. WhatsApp/KI-Assistent) über unseren Dienstleister <strong>linkty.ai</strong> an. Das Chat-Widget wird <strong>erst nach Ihrer Einwilligung</strong> geladen (Art. 6 Abs. 1 lit. a DSGVO); dabei können Daten an die Plattform und ggf. eingebundene Dritte übertragen werden. Sie können die Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen.</p>
 
             <h2>6. Google Maps</h2>
             <p>Zur Standortdarstellung binden wir Google Maps ein. Die Karte wird erst nach Klick auf „Karte laden“ geladen; erst dann werden Daten – ggf. in die USA – an Google übertragen (Art. 6 Abs. 1 lit. a DSGVO). Anbieter: Google Ireland Limited.</p>

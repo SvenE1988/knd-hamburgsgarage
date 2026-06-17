@@ -24,7 +24,7 @@ export default function ConsentBanner() {
   return (
     <div className="consent" role="dialog" aria-label="Einwilligung">
       <p>
-        Wir setzen optional einen Chat-Dienst (GoHighLevel) ein, um dir schnell zu helfen – dabei können Daten an Dritte
+        Wir setzen optional einen Chat-Dienst ein, um dir schnell zu helfen – dabei können Daten an Dritte
         übertragen werden. Unsere Reichweitenmessung (Umami) ist cookielos. Details in der{" "}
         <a href="/datenschutz/">Datenschutzerklärung</a>.
       </p>
