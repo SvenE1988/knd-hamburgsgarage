@@ -34,58 +34,14 @@ export default function BookingDialog({ label = "Online-Termin buchen" }: { labe
           role="dialog"
           aria-modal="true"
           aria-label="Online-Terminbuchung"
+          className="modal-overlay"
           onClick={() => setOpen(false)}
-          style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: 1000,
-            background: "rgba(0,0,0,.66)",
-            backdropFilter: "blur(3px)",
-            display: "flex",
-            alignItems: "flex-start",
-            justifyContent: "center",
-            padding: "clamp(16px,5vh,64px) 16px",
-            overflowY: "auto",
-          }}
         >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              position: "relative",
-              width: "100%",
-              maxWidth: 760,
-              background: "var(--ink-2)",
-              border: "1px solid var(--line)",
-              borderRadius: "var(--radius)",
-              padding: 24,
-              boxShadow: "0 30px 80px rgba(0,0,0,.6)",
-            }}
-          >
-            <button
-              type="button"
-              aria-label="Fenster schließen"
-              onClick={() => setOpen(false)}
-              style={{
-                position: "absolute",
-                top: 10,
-                right: 12,
-                width: 38,
-                height: 38,
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                border: "1px solid var(--line)",
-                borderRadius: 9,
-                background: "transparent",
-                color: "#fff",
-                fontSize: 24,
-                lineHeight: 1,
-                cursor: "pointer",
-              }}
-            >
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <button type="button" className="modal-close" aria-label="Fenster schließen" onClick={() => setOpen(false)}>
               ×
             </button>
-            <h3 className="h3" style={{ marginBottom: 14, paddingRight: 40 }}>
+            <h3 className="h3 modal-head">
               Online-Termin buchen
             </h3>
             <CalendarEmbed title="Online-Terminbuchung" />
