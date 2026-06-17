@@ -1,19 +1,37 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
+import { MailIcon } from "./icons";
 
 // Bindet das GoHighLevel-Formular (link.linkty.ai) ein und lädt das Resize-Script einmalig.
 // Das Innendesign des Formulars wird in GoHighLevel selbst gepflegt; hier matchen wir den Rahmen.
+// DSGVO-freundlich: das iframe lädt erst nach aktivem Klick (Gate).
 export default function GhlForm({ title = "Anfrageformular" }: { title?: string }) {
+  const [loaded, setLoaded] = useState(false);
+
   useEffect(() => {
+    if (!loaded) return;
     if (!document.querySelector(`script[src="${site.ghl.formScript}"]`)) {
       const s = document.createElement("script");
       s.src = site.ghl.formScript;
       s.async = true;
       document.body.appendChild(s);
     }
-  }, []);
+  }, [loaded]);
+
+  if (!loaded) {
+    return (
+      <div className="embed-gate" style={{ minHeight: site.ghl.formHeight }}>
+        <MailIcon width={30} height={30} style={{ color: "var(--red)" }} />
+        <div>
+          <p style={{ color: "#fff", fontWeight: 700 }}>{title}</p>
+          <p className="muted" style={{ fontSize: 13, marginTop: 4 }}>Beim Laden werden Daten an linkty.ai übertragen.</p>
+        </div>
+        <button type="button" className="btn primary sm" onClick={() => setLoaded(true)}>Formular laden</button>
+      </div>
+    );
+  }
 
   return (
     <div className="embed-card">

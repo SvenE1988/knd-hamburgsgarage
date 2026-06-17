@@ -44,7 +44,7 @@ export default function BookingDialog({ label = "Online-Termin buchen" }: { labe
             <h3 className="h3 modal-head">
               Online-Termin buchen
             </h3>
-            <CalendarEmbed title="Online-Terminbuchung" />
+            <CalendarEmbed title="Online-Terminbuchung" autoload />
           </div>
         </div>
       )}

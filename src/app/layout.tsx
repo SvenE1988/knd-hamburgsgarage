@@ -4,7 +4,6 @@ import { Anton, Archivo, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import IntroOverlay from "@/components/IntroOverlay";
 import WhatsAppFab from "@/components/WhatsAppFab";
 import ConsentBanner from "@/components/ConsentBanner";
 import ChatWidget from "@/components/ChatWidget";
@@ -14,8 +13,8 @@ import { site } from "@/lib/site";
 
 // Selbstgehostete Schriften via next/font (kein externer Google-Fonts-Request zur Laufzeit,
 // kein Layout-Shift). Die Variablen werden in globals.css als --font-* verwendet.
-const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-inter", display: "swap" });
-const archivo = Archivo({ subsets: ["latin"], weight: ["600", "700", "800", "900"], variable: "--font-archivo", display: "swap" });
+const inter = Inter({ subsets: ["latin"], weight: ["400", "600", "700"], variable: "--font-inter", display: "swap" });
+const archivo = Archivo({ subsets: ["latin"], weight: ["700", "800"], variable: "--font-archivo", display: "swap" });
 const anton = Anton({ subsets: ["latin"], weight: "400", variable: "--font-anton", display: "swap" });
 
 export const metadata: Metadata = {
@@ -27,7 +26,7 @@ export const metadata: Metadata = {
   description:
     "Hamburgs GaRage – Ihr KFZ-Meisterbetrieb in Hamburg-Eimsbüttel. Inspektion, HU/AU, Bremsen, Reifen, Klima & mehr für alle Marken. Jetzt Termin vereinbaren.",
   alternates: { canonical: "/" },
-  icons: { icon: "/images/favicon.png", apple: "/images/favicon.png" },
+  icons: { icon: "/images/favicon.png", apple: "/images/apple-icon.png" },
   openGraph: {
     type: "website",
     locale: "de_DE",
@@ -51,10 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="de" className={`${inter.variable} ${archivo.variable} ${anton.variable}`}>
       <body>
-        <noscript><style>{`#intro{display:none!important}`}</style></noscript>
-
         <JsonLd data={autoRepairSchema()} />
-        <IntroOverlay />
         <Header />
         <main>{children}</main>
         <Footer />

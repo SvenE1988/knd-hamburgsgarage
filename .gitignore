@@ -29,3 +29,6 @@ next-env.d.ts.bak
 
 # Local Netlify folder
 .netlify
+
+# three-brain / Codex-Review-Rohimport (lokales Artefakt)
+three-brain-out/

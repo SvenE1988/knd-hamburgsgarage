@@ -14,6 +14,13 @@ npm run lint       # ESLint (Flat-Config)
 
 Build nach jeder signifikanten Änderung verifizieren. Deployment: Push auf `main` → Netlify baut automatisch (Continuous Deployment via GitHub). Build-/Deploy-Status liest Claude über das Netlify CLI aus.
 
+## Performance-Arbeit — diese zwei Skills heranziehen
+Bei Perf-, Video-, Bild- oder Core-Web-Vitals-Arbeit ausschließlich diese beiden Skills nutzen (kein anderes Next.js-/Performance-Plugin):
+- **`vercel-optimize`** — Optimierungs-Doktrin: Evidenz vor Annahme, keine Source-Inspektion ohne Messgrund, version-aware Citations. (CLI-Pipeline zielt auf Vercel-Deployments; hier läuft die Site auf Netlify/OpenNext, also nur die Doktrin nutzen, nicht die `vercel metrics`-Pipeline.)
+- **`vercel-react-best-practices`** — 70 React/Next-Performance-Regeln (Waterfalls, Bundle, Resource-Hints u. a.).
+
+Kernregel aus diesen Skills: **API-Aussagen immer gegen die installierte Typdefinition in `node_modules` verifizieren, nicht gegen Skill- oder Doku-Text.** Beispiel: `next/image` `priority` ist in Next 16.2.9 `@deprecated` → Nachfolger `preload` (belegt in `node_modules/next/dist/shared/lib/get-img-props.d.ts`).
+
 ## Source of Truth — nicht hartkodieren, nicht duplizieren
 - `src/lib/site.ts` — NAP, Telefon, WhatsApp, Umami, Place ID, Buchungs-URLs (`calendarSrc`).
 - `src/lib/services.ts` — Leistungen, Richtpreise, Online-Buchbarkeit (`bookable`).

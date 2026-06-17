@@ -6,6 +6,8 @@ import { site } from "@/lib/site";
 import { Container, Button, SectionHeading, Eyebrow } from "@/components/ui";
 import ServiceCard from "@/components/ServiceCard";
 import CtaBand from "@/components/CtaBand";
+import BackgroundVideo from "@/components/BackgroundVideo";
+import IntroOverlay from "@/components/IntroOverlay";
 import { CheckIcon, PhoneIcon } from "@/components/icons";
 
 const usps = [
@@ -25,11 +27,16 @@ const values = [
 export default function HomePage() {
   return (
     <>
+      <IntroOverlay />
       {/* HERO */}
       <section className="hero">
-        <video autoPlay muted loop playsInline preload="metadata" poster="/images/hero-poster.webp">
-          <source src="/videos/hero.mp4" type="video/mp4" />
-        </video>
+        <BackgroundVideo
+          src="/videos/hero.mp4"
+          poster="/images/hero-poster.webp"
+          desktopFrom="768px"
+          preload
+          posterClassName="hero-poster"
+        />
         <div className="veil" />
         <Container>
           <div className="hero-inner">
