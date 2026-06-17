@@ -62,7 +62,7 @@ export default async function ServicePage({ params }: Props) {
                 ) : (
                   <Button href="/kostenvoranschlag/">Kostenvoranschlag anfragen</Button>
                 )}
-                <a className="btn ghost" href={`tel:${site.phone.e164}`}><PhoneIcon width={18} height={18} /> {site.phone.display}</a>
+                <a className="btn ghost" href={`tel:${site.phone.e164}`} data-umami-event="Anruf"><PhoneIcon width={18} height={18} /> {site.phone.display}</a>
               </div>
             </div>
             <div className="imgcard" style={{ minHeight: 320 }}>
@@ -119,8 +119,8 @@ export default async function ServicePage({ params }: Props) {
                   ))}
                 </ul>
                 <div className="mt-6" style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                  <a className="btn primary block" href={`tel:${site.phone.e164}`}><PhoneIcon width={18} height={18} /> {site.phone.display}</a>
-                  <a className="btn ghost block" href={whatsappUrl} target="_blank" rel="noopener noreferrer"><WhatsAppIcon width={18} height={18} /> WhatsApp</a>
+                  <a className="btn primary block" href={`tel:${site.phone.e164}`} data-umami-event="Anruf"><PhoneIcon width={18} height={18} /> {site.phone.display}</a>
+                  <a className="btn ghost block" href={whatsappUrl} target="_blank" rel="noopener noreferrer" data-umami-event="WhatsApp"><WhatsAppIcon width={18} height={18} /> WhatsApp</a>
                 </div>
               </div>
 

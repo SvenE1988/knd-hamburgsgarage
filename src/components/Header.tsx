@@ -33,7 +33,7 @@ export default function Header() {
         </nav>
 
         <div className="header-actions">
-          <a className="btn primary callbtn" href={`tel:${site.phone.e164}`}><PhoneIcon width={18} height={18} /> {site.phone.display}</a>
+          <a className="btn primary callbtn" href={`tel:${site.phone.e164}`} data-umami-event="Anruf"><PhoneIcon width={18} height={18} /> {site.phone.display}</a>
           <button type="button" className="burger" aria-label="Menü" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
             {open ? <CloseIcon /> : <MenuIcon />}
           </button>
@@ -44,7 +44,7 @@ export default function Header() {
         {mainNav.map((item) => (
           <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}</Link>
         ))}
-        <a className="btn primary" href={`tel:${site.phone.e164}`} onClick={() => setOpen(false)}><PhoneIcon width={18} height={18} /> {site.phone.display}</a>
+        <a className="btn primary" href={`tel:${site.phone.e164}`} onClick={() => setOpen(false)} data-umami-event="Anruf"><PhoneIcon width={18} height={18} /> {site.phone.display}</a>
       </div>
     </header>
   );

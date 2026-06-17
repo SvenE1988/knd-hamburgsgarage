@@ -4,10 +4,10 @@ import { WhatsAppIcon, PhoneIcon } from "./icons";
 export default function WhatsAppFab() {
   return (
     <div className="fabs">
-      <a className="fab wa" href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="Per WhatsApp schreiben">
+      <a className="fab wa" href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="Per WhatsApp schreiben" data-umami-event="WhatsApp">
         <WhatsAppIcon width={28} height={28} />
       </a>
-      <a className="fab call" href={`tel:${site.phone.e164}`} aria-label="Anrufen">
+      <a className="fab call" href={`tel:${site.phone.e164}`} aria-label="Anrufen" data-umami-event="Anruf">
         <PhoneIcon width={24} height={24} />
       </a>
     </div>

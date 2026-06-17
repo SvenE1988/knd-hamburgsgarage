@@ -40,7 +40,7 @@ export default function HomePage() {
               Ehrliches Handwerk, faire Preise, mitten an der Osterstraße.
             </p>
             <div className="cta">
-              <a className="btn primary" href={`tel:${site.phone.e164}`}><PhoneIcon width={18} height={18} /> Termin: {site.phone.display}</a>
+              <a className="btn primary" href={`tel:${site.phone.e164}`} data-umami-event="Anruf"><PhoneIcon width={18} height={18} /> Termin: {site.phone.display}</a>
               <Button href="/leistungen/" variant="ghost" withArrow>Leistungen entdecken</Button>
             </div>
             <ul className="trust">

@@ -36,8 +36,8 @@ export default function Footer() {
           <div>
             <h5>Kontakt</h5>
             <p style={{ display: "flex", gap: 8 }}><MapPinIcon width={18} height={18} /> {site.address.street}, {site.address.postalCode} {site.address.city}-{site.address.district}</p>
-            <p><a href={`tel:${site.phone.e164}`} style={{ display: "inline-flex", gap: 8, alignItems: "center" }}><PhoneIcon width={18} height={18} /> {site.phone.display}</a></p>
-            <p><a href={whatsappUrl} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", gap: 8, alignItems: "center" }}><WhatsAppIcon width={18} height={18} /> WhatsApp</a></p>
+            <p><a href={`tel:${site.phone.e164}`} data-umami-event="Anruf" style={{ display: "inline-flex", gap: 8, alignItems: "center" }}><PhoneIcon width={18} height={18} /> {site.phone.display}</a></p>
+            <p><a href={whatsappUrl} target="_blank" rel="noopener noreferrer" data-umami-event="WhatsApp" style={{ display: "inline-flex", gap: 8, alignItems: "center" }}><WhatsAppIcon width={18} height={18} /> WhatsApp</a></p>
             <p><a href={`mailto:${site.email}`} style={{ display: "inline-flex", gap: 8, alignItems: "center" }}><MailIcon width={18} height={18} /> {site.email}</a></p>
             <p style={{ display: "flex", gap: 8 }}><ClockIcon width={18} height={18} /> Mo–Do 8:00–17:15 · Fr 8:00–15:15</p>
           </div>
