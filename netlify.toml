@@ -1,8 +1,9 @@
-# Netlify-Konfiguration für die statisch exportierte Next.js-Site
+# Netlify-Konfiguration – Next.js über die Netlify Next.js Runtime (OpenNext).
+# Die Runtime wird automatisch erkannt/installiert (zero-config), kein manuelles Plugin nötig.
 
 [build]
   command = "npm run build"
-  publish = "out"
+  publish = ".next"
 
 [build.environment]
   NODE_VERSION = "22"
