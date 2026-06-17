@@ -25,9 +25,9 @@ export default function RatgeberPage() {
         <Container>
           <SectionHeading as="h1" eyebrow="Ratgeber" title="Tipps rund ums Auto" intro="Praktisches Wissen aus unserer Werkstatt in Eimsbüttel – verständlich erklärt." />
           <div className="grid cols-3 mt-12">
-            {articles.map((a) => (
+            {articles.map((a, i) => (
               <Link key={a.slug} href={`/ratgeber/${a.slug}/`} className="lcard" style={{ padding: 0, overflow: "hidden" }}>
-                <Image src={a.heroImage} alt={a.heroAlt} width={600} height={360} sizes="(max-width: 560px) 100vw, (max-width: 860px) 50vw, 380px" style={{ height: 180, width: "100%", objectFit: "cover" }} />
+                <Image src={a.heroImage} alt={a.heroAlt} width={600} height={360} preload={i === 0} sizes="(max-width: 560px) 100vw, (max-width: 860px) 50vw, 380px" style={{ height: 180, width: "100%", objectFit: "cover" }} />
                 <div style={{ padding: "18px 20px" }}>
                   <time style={{ fontSize: 12, color: "var(--muted)", textTransform: "uppercase", letterSpacing: ".1em" }}>
                     {new Date(a.date).toLocaleDateString("de-DE", { day: "2-digit", month: "long", year: "numeric" })}

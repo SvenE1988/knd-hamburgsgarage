@@ -46,7 +46,7 @@ export default function UeberUnsPage() {
               <div className="mt-8"><Button href="/leistungen/" withArrow>Unsere Leistungen</Button></div>
             </div>
             <div className="imgcard" style={{ minHeight: 460 }}>
-              <Image src="/images/eimsbuettel-altbau.webp" alt="Typischer Eimsbütteler Altbau in der Nachbarschaft der Hamburgs GaRage" width={1100} height={1400} priority sizes="(max-width: 860px) 100vw, 600px" />
+              <Image src="/images/eimsbuettel-altbau.webp" alt="Typischer Eimsbütteler Altbau in der Nachbarschaft der Hamburgs GaRage" width={1100} height={1400} preload sizes="(max-width: 860px) 100vw, 600px" />
             </div>
           </div>
         </Container>

@@ -66,7 +66,7 @@ export default async function ServicePage({ params }: Props) {
               </div>
             </div>
             <div className="imgcard" style={{ minHeight: 320 }}>
-              <Image src={service.heroImage} alt={service.heroAlt} width={1200} height={900} priority sizes="(max-width: 860px) 100vw, 600px" />
+              <Image src={service.heroImage} alt={service.heroAlt} width={1200} height={900} preload sizes="(max-width: 860px) 100vw, 600px" />
             </div>
           </div>
         </Container>
