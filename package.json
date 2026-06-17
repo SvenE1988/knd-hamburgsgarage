@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "preview": "next start"
+    "preview": "next start",
+    "lint": "eslint ."
   },
   "dependencies": {
     "next": "^16.2.0",
@@ -18,6 +19,8 @@
     "@types/node": "^24.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "^16.2.0",
     "typescript": "^5.7.0"
   }
 }
