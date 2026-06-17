@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Container, SectionHeading, Eyebrow } from "@/components/ui";
+import { Container, SectionHeading } from "@/components/ui";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";

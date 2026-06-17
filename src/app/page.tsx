@@ -2,11 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { services } from "@/lib/services";
 import { articles } from "@/lib/ratgeber";
-import { site, whatsappUrl } from "@/lib/site";
+import { site } from "@/lib/site";
 import { Container, Button, SectionHeading, Eyebrow } from "@/components/ui";
 import ServiceCard from "@/components/ServiceCard";
 import CtaBand from "@/components/CtaBand";
-import { CheckIcon, PhoneIcon, WhatsAppIcon } from "@/components/icons";
+import { CheckIcon, PhoneIcon } from "@/components/icons";
 
 const usps = [
   ["Meisterbetrieb", "Geprüfte Qualität und ehrliche Beratung aus einer Hand."],
