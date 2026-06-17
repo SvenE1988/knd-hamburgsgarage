@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Container, SectionHeading, Eyebrow, Button } from "@/components/ui";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CtaBand from "@/components/CtaBand";
@@ -45,7 +46,7 @@ export default function UeberUnsPage() {
               <div className="mt-8"><Button href="/leistungen/" withArrow>Unsere Leistungen</Button></div>
             </div>
             <div className="imgcard" style={{ minHeight: 460 }}>
-              <img src="/images/eimsbuettel-altbau.webp" alt="Typischer Eimsbütteler Altbau in der Nachbarschaft der Hamburgs GaRage" width={1100} height={1400} />
+              <Image src="/images/eimsbuettel-altbau.webp" alt="Typischer Eimsbütteler Altbau in der Nachbarschaft der Hamburgs GaRage" width={1100} height={1400} priority sizes="(max-width: 860px) 100vw, 600px" />
             </div>
           </div>
         </Container>
@@ -90,7 +91,7 @@ export default function UeberUnsPage() {
           <div className="grid cols-4 mt-8">
             {gallery.map(([src, alt]) => (
               <div className="imgcard" key={src} style={{ height: 220 }}>
-                <img src={src} alt={alt} width={600} height={450} loading="lazy" style={{ height: "100%" }} />
+                <Image src={src} alt={alt} width={600} height={450} sizes="(max-width: 560px) 100vw, (max-width: 860px) 50vw, 280px" style={{ height: "100%" }} />
               </div>
             ))}
           </div>

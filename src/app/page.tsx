@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { services } from "@/lib/services";
 import { articles } from "@/lib/ratgeber";
 import { site, whatsappUrl } from "@/lib/site";
@@ -96,7 +97,7 @@ export default function HomePage() {
         <Container>
           <div className="split">
             <div className="imgcard reveal" style={{ minHeight: 420 }}>
-              <img src="/images/eimsbuettel-osterstrasse.webp" alt="Straße in Hamburg-Eimsbüttel nahe der Hamburgs GaRage" width={1200} height={800} loading="lazy" />
+              <Image src="/images/eimsbuettel-osterstrasse.webp" alt="Straße in Hamburg-Eimsbüttel nahe der Hamburgs GaRage" width={1200} height={800} sizes="(max-width: 860px) 100vw, 600px" />
             </div>
             <div className="reveal">
               <SectionHeading eyebrow="Fest verwurzelt in Eimsbüttel" title="Ihre Nachbarschaftswerkstatt an der Osterstraße" intro="Keine anonyme Kette – wir sind Teil von Eimsbüttel. Auto abgeben, die Osterstraße entlangschlendern, Kaffee trinken." />
@@ -114,7 +115,7 @@ export default function HomePage() {
       {/* BRAND MOMENT */}
       <section className="brandmoment reveal">
         <Container>
-          <img src="/images/logo.png" alt="Hamburgs GaRage Logo" width={128} height={128} />
+          <Image src="/images/logo.png" alt="Hamburgs GaRage Logo" width={128} height={128} />
           <div className="wm">Hamburgs<span className="gr"> GaRage</span></div>
           <p className="lead center mt-4">Handwerk mit Hamburger Wappen. Vertrauen, das man sieht – und fährt.</p>
         </Container>
@@ -134,7 +135,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="imgcard reveal" style={{ minHeight: 380 }}>
-              <img src="/images/neon-reparaturannahme.webp" alt="Leuchtschrift Reparaturannahme der Hamburgs GaRage in Hamburg-Eimsbüttel" width={1200} height={900} loading="lazy" />
+              <Image src="/images/neon-reparaturannahme.webp" alt="Leuchtschrift Reparaturannahme der Hamburgs GaRage in Hamburg-Eimsbüttel" width={1200} height={900} sizes="(max-width: 860px) 100vw, 600px" />
             </div>
           </div>
         </Container>
@@ -147,7 +148,7 @@ export default function HomePage() {
           <div className="grid cols-3 mt-12">
             {articles.slice(0, 3).map((a) => (
               <Link key={a.slug} href={`/ratgeber/${a.slug}/`} className="lcard" style={{ padding: 0, overflow: "hidden" }}>
-                <img src={a.heroImage} alt={a.heroAlt} width={600} height={360} loading="lazy" style={{ height: 170, width: "100%", objectFit: "cover" }} />
+                <Image src={a.heroImage} alt={a.heroAlt} width={600} height={360} sizes="(max-width: 560px) 100vw, (max-width: 860px) 50vw, 380px" style={{ height: 170, width: "100%", objectFit: "cover" }} />
                 <div style={{ padding: "18px 20px" }}>
                   <h3 style={{ marginTop: 0 }}>{a.title}</h3>
                   <p>{a.description}</p>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { site, whatsappUrl, googleReviewsUrl } from "@/lib/site";
 import { services } from "@/lib/services";
 import { Container } from "./ui";
@@ -12,7 +13,7 @@ export default function Footer() {
         <div className="fgrid">
           <div>
             <div className="brand" style={{ fontSize: 20 }}>
-              <img src="/images/logo.png" alt="Hamburgs GaRage Logo" width={44} height={44} />
+              <Image src="/images/logo.png" alt="Hamburgs GaRage Logo" width={44} height={44} />
               <span>Hamburgs<span className="gr"> GaRage</span></span>
             </div>
             <p style={{ marginTop: 14, maxWidth: 300 }}>
