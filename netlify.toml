@@ -4,6 +4,9 @@
 [build]
   command = "npm run build"
   publish = ".next"
+  # Build überspringen, wenn ein Push NUR Doku/Claude-Konfig ändert (kein Output-Effekt).
+  # Exit 0 = skip, Exit 1 = bauen. Sobald eine baurelevante Datei dabei ist, läuft der Build.
+  ignore = "git diff --quiet HEAD^ HEAD -- . ':(exclude)CLAUDE.md' ':(exclude)docs/' ':(exclude).claude/'"
 
 [build.environment]
   NODE_VERSION = "22"
