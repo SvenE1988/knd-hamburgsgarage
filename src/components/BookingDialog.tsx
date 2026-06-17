@@ -25,7 +25,7 @@ export default function BookingDialog({ label = "Online-Termin buchen" }: { labe
 
   return (
     <>
-      <button type="button" className="btn primary" onClick={() => setOpen(true)}>
+      <button type="button" className="btn primary" onClick={() => setOpen(true)} data-umami-event="Termin-Buchung">
         <CalendarIcon width={18} height={18} /> {label}
       </button>
 
