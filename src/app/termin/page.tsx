@@ -4,7 +4,7 @@ import { Container, SectionHeading, Eyebrow } from "@/components/ui";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
-import GhlForm from "@/components/GhlForm";
+import CalendarEmbed from "@/components/CalendarEmbed";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
 import { CheckIcon, PhoneIcon } from "@/components/icons";
@@ -52,12 +52,12 @@ export default function TerminPage() {
             </div>
 
             <div>
-              <Eyebrow>Terminanfrage</Eyebrow>
-              <h2 className="h2" style={{ marginBottom: 8 }}>Ihr Wunschtermin</h2>
+              <Eyebrow>Online-Terminbuchung</Eyebrow>
+              <h2 className="h2" style={{ marginBottom: 8 }}>Direkt online buchen</h2>
               <p className="muted" style={{ marginBottom: 16, fontSize: 14 }}>
-                Die direkte Online-Buchung über unseren Kalender folgt in Kürze. Bis dahin senden Sie uns einfach Ihre Terminanfrage:
+                Wählen Sie für planbare Leistungen einfach einen freien Termin in unserem Kalender. HU/AU sowie Unfall, Lack & Glas stimmen wir kurz telefonisch mit Ihnen ab.
               </p>
-              <GhlForm title="Terminanfrage" />
+              <CalendarEmbed title="Online-Terminbuchung" />
             </div>
           </div>
         </Container>
