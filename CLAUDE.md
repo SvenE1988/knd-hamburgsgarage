@@ -14,6 +14,8 @@ npm run lint       # ESLint (Flat-Config)
 
 Build nach jeder signifikanten Änderung verifizieren. Deployment: Push auf `main` → Netlify baut automatisch (Continuous Deployment via GitHub). Build-/Deploy-Status liest Claude über das Netlify CLI aus.
 
+Lighthouse ist nicht installiert, läuft on-demand via `npx lighthouse <url> --preset=perf|desktop` (Chrome unter `/Applications/Google Chrome.app/...`, via `CHROME_PATH`). Immer gegen Production-Build (`npm run build` + `npm run start`) oder die Live-URL messen, nie Dev-Server. Lokal misst optimistischer als live (CDN-RTT + reale Transferzeit fehlen) — die Live-Netlify-URL ist die ehrliche Baseline.
+
 ## Performance-Arbeit — diese zwei Skills heranziehen
 Bei Perf-, Video-, Bild- oder Core-Web-Vitals-Arbeit ausschließlich diese beiden Skills nutzen (kein anderes Next.js-/Performance-Plugin):
 - **`vercel-optimize`** — Optimierungs-Doktrin: Evidenz vor Annahme, keine Source-Inspektion ohne Messgrund, version-aware Citations. (CLI-Pipeline zielt auf Vercel-Deployments; hier läuft die Site auf Netlify/OpenNext, also nur die Doktrin nutzen, nicht die `vercel metrics`-Pipeline.)
