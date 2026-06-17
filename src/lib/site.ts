@@ -41,7 +41,7 @@ export const site = {
     websiteId: "800a1045-e0ff-4c7d-90b9-a92f194ce0de",
   },
 
-  // GoHighLevel (White-Label-Domain link.linkty.ai)
+  // Buchungs-, Formular- und Chat-System (White-Label-Domain link.linkty.ai)
   ghl: {
     formSrc: "https://link.linkty.ai/widget/form/uflggnnypf2FKlOldAWF",
     formId: "uflggnnypf2FKlOldAWF",
@@ -50,8 +50,9 @@ export const site = {
     chatLoader: "https://widgets.leadconnectorhq.com/loader.js",
     chatResources: "https://widgets.leadconnectorhq.com/chat-widget/loader.js",
     chatWidgetId: "6a319c1efca726332cba828e",
-    // Service-Kalender folgt, sobald in GHL fertig:
-    calendarSrc: "",
+    // Online-Terminbuchung (Kalender-Widget + Resize-Script)
+    calendarSrc: "https://link.linkty.ai/widget/booking/8EPXYEVp4afKCoHyCGDh",
+    calendarScript: "https://link.linkty.ai/js/embed.js",
   },
 };
 

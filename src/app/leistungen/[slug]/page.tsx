@@ -7,9 +7,10 @@ import { Container, Button, Eyebrow } from "@/components/ui";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CtaBand from "@/components/CtaBand";
 import PriceTable from "@/components/PriceTable";
+import BookingDialog from "@/components/BookingDialog";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbSchema, serviceSchema, faqSchema } from "@/lib/schema";
-import { CheckIcon, ArrowRightIcon, PhoneIcon, CalendarIcon, WhatsAppIcon } from "@/components/icons";
+import { CheckIcon, ArrowRightIcon, PhoneIcon, WhatsAppIcon } from "@/components/icons";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -56,7 +57,7 @@ export default async function ServicePage({ params }: Props) {
               <p className="lead mt-4">{service.tagline}</p>
               <div className="cta mt-8" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                 {service.bookable ? (
-                  <Button href="/termin/"><CalendarIcon width={18} height={18} /> Online-Termin anfragen</Button>
+                  <BookingDialog label="Online-Termin buchen" />
                 ) : (
                   <Button href="/kostenvoranschlag/">Kostenvoranschlag anfragen</Button>
                 )}
