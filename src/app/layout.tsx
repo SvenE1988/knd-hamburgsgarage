@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { Anton, Archivo, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -11,6 +12,12 @@ import JsonLd from "@/components/JsonLd";
 import { autoRepairSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
+// Selbstgehostete Schriften via next/font (kein externer Google-Fonts-Request zur Laufzeit,
+// kein Layout-Shift). Die Variablen werden in globals.css als --font-* verwendet.
+const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-inter", display: "swap" });
+const archivo = Archivo({ subsets: ["latin"], weight: ["600", "700", "800", "900"], variable: "--font-archivo", display: "swap" });
+const anton = Anton({ subsets: ["latin"], weight: "400", variable: "--font-anton", display: "swap" });
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
@@ -20,7 +27,7 @@ export const metadata: Metadata = {
   description:
     "Hamburgs GaRage – Ihr KFZ-Meisterbetrieb in Hamburg-Eimsbüttel. Inspektion, HU/AU, Bremsen, Reifen, Klima & mehr für alle Marken. Jetzt Termin vereinbaren.",
   alternates: { canonical: "/" },
-  icons: { icon: "/images/logo.png", apple: "/images/logo.png" },
+  icons: { icon: "/images/favicon.png", apple: "/images/favicon.png" },
   openGraph: {
     type: "website",
     locale: "de_DE",
@@ -28,7 +35,13 @@ export const metadata: Metadata = {
     url: site.url,
     title: "KFZ-Meisterbetrieb in Hamburg-Eimsbüttel | Hamburgs GaRage",
     description: "Ihr KFZ-Meisterbetrieb in Hamburg-Eimsbüttel. Inspektion, HU/AU, Bremsen, Reifen, Klima & mehr für alle Marken.",
-    images: ["/images/schaufenster-werkstatt.webp"],
+    images: [{ url: "/images/og-default.png", width: 1200, height: 630, alt: "Hamburgs GaRage – KFZ-Meisterbetrieb in Hamburg-Eimsbüttel" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "KFZ-Meisterbetrieb in Hamburg-Eimsbüttel | Hamburgs GaRage",
+    description: "Ihr KFZ-Meisterbetrieb in Hamburg-Eimsbüttel. Inspektion, HU/AU, Bremsen, Reifen, Klima & mehr für alle Marken.",
+    images: ["/images/og-default.png"],
   },
 };
 
@@ -36,14 +49,8 @@ export const viewport: Viewport = { themeColor: "#e11d2a" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="de">
+    <html lang="de" className={`${inter.variable} ${archivo.variable} ${anton.variable}`}>
       <body>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
-        />
         <noscript><style>{`#intro{display:none!important}`}</style></noscript>
 
         <JsonLd data={autoRepairSchema()} />
