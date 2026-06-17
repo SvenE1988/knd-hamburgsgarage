@@ -26,7 +26,10 @@ Verlässlicher Status-Check (ein Aufruf, liefert State + Commit + Build-Zeit):
 netlify api listSiteDeploys --data '{"site_id":"d914618d-40be-49a7-bb63-a5c943686c02","per_page":2}'
 ```
 
-`state: ready` = Build grün, `state: error` = fehlgeschlagen (dann `error_message` lesen). `building`/`enqueued` = läuft noch, erneut prüfen. **Nicht** `getSiteDeploy` zum Pollen nehmen — gab in der Praxis kein verwertbares JSON. Build dauert typisch 30–90 s, auch bei reinen Doku-Änderungen (voller Rebuild).
+`state: ready` = Build grün, `state: error` = fehlgeschlagen (dann `error_message` lesen). `building`/`enqueued` = läuft noch, erneut prüfen. **Nicht** `getSiteDeploy` zum Pollen nehmen — gab in der Praxis kein verwertbares JSON. Build dauert typisch 30–90 s.
+
+## Build-Skip bei reinen Doku-Änderungen
+`netlify.toml` `[build].ignore` überspringt den Build, wenn ein Push **nur** `CLAUDE.md`, `docs/` oder `.claude/` ändert (Exit 0 = skip, Exit 1 = bauen). Sobald eine baurelevante Datei (`src/`, `public/`, `package.json`, `netlify.toml`, `next.config*`) dabei ist, läuft der Build normal. Übersprungene Deploys erscheinen in `listSiteDeploys` mit `state: skipped`. Die Logik betrachtet nur `HEAD^..HEAD` — Doku separat committen (nicht mit Code mischen), dann greift es zuverlässig.
 
 ## Passende Skills (Plugin `netlify-skills`, in settings.local.json aktiviert)
 - `netlify-cli-and-deploy` — CLI-Grundlagen: linken, deployen, Env-Vars, local dev. Erste Anlaufstelle für CLI-Fragen.
