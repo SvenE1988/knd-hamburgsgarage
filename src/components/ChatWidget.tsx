@@ -9,6 +9,7 @@ export default function ChatWidget() {
   const { consent, ready } = useConsent();
 
   useEffect(() => {
+    if (!site.chatWidgetEnabled) return;
     if (!ready || !consent.chat) return;
     if (document.getElementById("ghl-chat-loader")) return;
     const s = document.createElement("script");

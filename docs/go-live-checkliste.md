@@ -1,6 +1,6 @@
 # Go-Live-Checkliste
 
-Lebendes Dokument. Stand gegen `main` verifiziert (2026-06-17). Die code-seitige Arbeit ist abgeschlossen; offen sind Kunden-, Rechts- und Domain-Punkte.
+Lebendes Dokument. Stand gegen `main` verifiziert (2026-06-19). Die code-seitige Arbeit ist abgeschlossen; offen sind Kunden-, Rechts- und Domain-Punkte.
 
 ## Erledigt (im Repo verifiziert)
 - [x] V2-Design in Mehrseiten-Architektur (16 Routen inkl. 8 Leistungsseiten), Intro-Overlay, technische SEO + JSON-LD, 7 Ratgeber-Artikel.
@@ -11,24 +11,31 @@ Lebendes Dokument. Stand gegen `main` verifiziert (2026-06-17). Die code-seitige
 - [x] `next/font` (selbstgehostete Schriften) aktiv.
 - [x] favicon.png (512×512) + og-default.png (1200×630) in `public/images/` committet, Metadaten in layout.tsx.
 - [x] postcss-Sicherheitsfix (CVE-2026-41305) via overrides auf 8.5.x.
+- [x] **Öffnungszeiten korrigiert** auf Mo–Do 8:00–17:15, Fr 8:00–15:15 (gegen Live-Site + Google verifiziert; vorheriger Stand 19:00/18:00 war falsch).
+- [x] **Chat-Widget zum Launch deaktiviert** via Flag `chatWidgetEnabled: false` in site.ts (Widget lädt nicht, Consent-Kategorie „Chat" ausgeblendet). Reaktivierung = Flag auf `true`.
+- [x] **Intro-Video Mobil**: auf schmalen Viewports `object-fit:contain` statt `cover` — das volle Videobild ist sichtbar statt nur der Bildmitte (verifiziert per Mobil-Screenshot).
+- [x] **Impressum-Daten gegen Handelsregister/NorthData verifiziert**: HRB 166741 (AG Hamburg), GF Gabor Böhm + Rade Stojkovic, Osterstraße 62-64. Zusatz: Eintragung 22.01.2021, Stammkapital 25.000 €.
 
 ## Offen — Kunde / Recht
-- [ ] **Finale Preise** in `services.ts` bestätigen (bis dahin Richtpreise + Disclaimer live).
-- [ ] **Datenschutzerklärung** rechtlich freigeben; Hinweis-Banner erst danach entfernen.
-- [ ] **Impressum** final prüfen (HRB, Inhaber, ggf. USt-IdNr.).
+- [ ] **Finale Preise** in `services.ts` bestätigen (Disclaimer nennt sie aktuell „Platzhalter"; bis Freigabe ein Risiko).
+- [ ] **Datenschutzerklärung** rechtlich freigeben; Hinweis-Banner erst danach entfernen. AV-Verträge (Netlify, linkty.ai, Umami/Erkens) bestätigen.
+- [ ] **USt-IdNr beim Kunden abfragen** und ins Impressum (Pflichtangabe sobald vorhanden; nicht öffentlich auffindbar). Ggf. Berufshaftpflicht-Versicherer ergänzen.
 - [ ] Inhalte/Texte final abnehmen.
-- [ ] Entscheidung: Chat-Widget zum Launch aktiv oder später?
+- [ ] **Intro-Video-Inhalt prüfen**: zeigt Oldtimer/Exoten (gelber Klassiker, Jeep) — widerspricht der Kundenvorgabe „keine Oldtimer/Exoten". Mit Kunde klären, ob anderes Material gewünscht.
 
 ## Offen — Domain & DNS
+- [ ] **Beim Kunden erfragen, wo die Domain hamburgsgarage.de liegt (Registrar/Provider) und Zugang sichern.**
 - [ ] hamburgsgarage.de (+ www) in Netlify als Custom Domain.
 - [ ] DNS umstellen (A/ALIAS bzw. CNAME laut Netlify); kanonische Variante festlegen (Empfehlung: ohne www, www → Apex).
 - [ ] TLS aktiv, HTTP→HTTPS-Redirect greift. `site.url` steht bereits auf https://hamburgsgarage.de.
 
 ## Offen — Redirects der Alt-URLs (WordPress)
-- [ ] Alte indexierte URLs ziehen (alte Search Console / WP-Sitemap / Screaming Frog).
-- [ ] Mapping prüfen: `/unser-service/` → `/leistungen/`, `/uber-uns/` → `/ueber-uns/`, `/anfahrt/` → `/kontakt/`, `/index/` → `/`. Detailseiten möglichst spezifisch.
+Alte Sitemap gezogen (`hamburgsgarage.de/wp-sitemap.xml`, via firecrawl map bestätigt). Vollständiges Mapping (8 Inhaltsseiten + Author-Archiv):
+- [ ] `/index/` → `/` · `/uber-uns/` → `/ueber-uns/` · `/unser-service/` → `/leistungen/` · `/kontakt/` → `/kontakt/` · `/anfahrt/` → `/kontakt/` · `/impressum/` → `/impressum/` · `/datenschutz/` → `/datenschutz/`
+- [ ] `/author/faridmodarressi/` → `/` (WP-Author-Archiv, raus). WP-Feeds `/feed/`, `/comments/feed/` → `/` oder 410.
+- [ ] Vor Launch optional mit alter Search Console abgleichen, falls Zugang (deckt verwaiste URLs ab).
 - [ ] Nach Launch jede Alt-URL testen: 301 aufs richtige Ziel (kein 404, keine Kette).
-- [ ] autowerkstatt-weiland.de (falls zugänglich) 301 auf hamburgsgarage.de.
+- [ ] autowerkstatt-weiland.de: eigener noch laufender Betrieb (Olaf Weiland), keine XML-Sitemap, 9 Pfade via firecrawl map gefunden. 301 auf hamburgsgarage.de ist **Geschäftsentscheidung des Kunden** — erst klären, ob gewünscht/zulässig.
 
 ## Offen — SEO & Indexierung
 - [ ] robots.txt + sitemap.xml prüfen (alle Routen, richtige Domain).
@@ -51,9 +58,11 @@ Lebendes Dokument. Stand gegen `main` verifiziert (2026-06-17). Die code-seitige
 - [ ] Umami: Pageviews + Events (Anruf, WhatsApp, Termin-Buchung) erscheinen.
 
 ## Offen — Local SEO
+- [ ] **Kunde fragen: Search-Console-Property für hamburgsgarage.de vorhanden?** Falls ja, Zugriff geben lassen (Alt-URLs/verwaiste Seiten abgleichen); falls nein, neu anlegen.
+- [ ] **Kunde fragen: Facebook-/Instagram-Profile zum Verlinken?** → `sameAs` in site.ts füllen (aktuell leer), plus Google-Profil-URL.
 - [ ] GBP-Zugang sichern, NAP exakt, Kategorie, Zeiten, Fotos, Leistungen.
-- [ ] Alt-Marke „Olaf Weiland" (gleiche Adresse/Telefon) konsolidieren statt Dublette anlegen.
-- [ ] NAP-Konsistenz über Citations; `sameAs` in site.ts füllen (aktuell leer); Bewertungslink testen.
+- [ ] Alt-Marke „Olaf Weiland" (gleiche Adresse/Telefon) konsolidieren statt Dublette anlegen. Dem Kunden erklären: Vorgängerbetrieb, Alt-Profil wird zusammengeführt statt neu angelegt.
+- [ ] NAP-Konsistenz über Citations; Bewertungslink testen.
 
 ## Nach dem Launch (Monitoring)
 - [ ] 24–72 h: Search Console auf Crawl-Fehler/404; Indexierung der Kernseiten.

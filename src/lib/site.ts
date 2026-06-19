@@ -28,12 +28,15 @@ export const site = {
   geo: { lat: 53.5755426, lng: 9.9566515 },
   googlePlaceId: "ChIJ3ZroK1GPsUcRyTYVGltVy-4",
   openingHours: [
-    { days: "Montag – Donnerstag", time: "08:00 – 19:00 Uhr", dow: ["Mo", "Tu", "We", "Th"], open: "08:00", close: "19:00" },
-    { days: "Freitag", time: "08:00 – 18:00 Uhr", dow: ["Fr"], open: "08:00", close: "18:00" },
+    { days: "Montag – Donnerstag", time: "08:00 – 17:15 Uhr", dow: ["Mo", "Tu", "We", "Th"], open: "08:00", close: "17:15" },
+    { days: "Freitag", time: "08:00 – 15:15 Uhr", dow: ["Fr"], open: "08:00", close: "15:15" },
   ],
   owners: ["Rade Stojkovic", "Gabor Böhm"],
   register: { hrb: "HRB 166741", court: "Amtsgericht Hamburg" },
   sameAs: [] as string[],
+
+  // Chat-Widget (linkty.ai) zum Launch deaktiviert. true = reaktivieren (Widget + Consent-Kategorie).
+  chatWidgetEnabled: false,
 
   // Analytics – selbstgehostetes Umami (cookieless / DSGVO-freundlich)
   umami: {

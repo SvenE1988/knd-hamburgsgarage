@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { site } from "@/lib/site";
 import { useConsent, CONSENT_ALL, CONSENT_NONE } from "./ConsentProvider";
 
 export default function ConsentBanner() {
@@ -20,7 +21,7 @@ export default function ConsentBanner() {
   return (
     <div className="consent" role="dialog" aria-label="Einwilligung">
       <p>
-        Wir binden optional externe Inhalte ein – Google Maps, Kontakt- und Buchungsformulare sowie einen Chat-Dienst.
+        Wir binden optional externe Inhalte ein – Google Maps sowie Kontakt- und Buchungsformulare{site.chatWidgetEnabled ? " sowie einen Chat-Dienst" : ""}.
         Dabei können Daten an Dritte übertragen werden. Unsere Reichweitenmessung (Umami) ist cookielos. Details in der{" "}
         <a href="/datenschutz/">Datenschutzerklärung</a>.
       </p>
@@ -34,13 +35,15 @@ export default function ConsentBanner() {
               <span className="muted">Google Maps, Kontakt-, Kostenvoranschlag- und Terminbuchungsformulare (linkty.ai).</span>
             </span>
           </label>
-          <label className="consent-cat">
-            <input type="checkbox" checked={chat} onChange={(e) => setChat(e.target.checked)} />
-            <span>
-              <strong>Chat-Dienst</strong>
-              <span className="muted">Chat- und WhatsApp-Assistent (linkty.ai).</span>
-            </span>
-          </label>
+          {site.chatWidgetEnabled && (
+            <label className="consent-cat">
+              <input type="checkbox" checked={chat} onChange={(e) => setChat(e.target.checked)} />
+              <span>
+                <strong>Chat-Dienst</strong>
+                <span className="muted">Chat- und WhatsApp-Assistent (linkty.ai).</span>
+              </span>
+            </label>
+          )}
         </div>
       )}
 
